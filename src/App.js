@@ -13,7 +13,7 @@ function App() {
           {greeting}
           <button>Click</button>         
         </p> 
-        <Counter></Counter>
+        <Counter/>
         <a
           className="App-link"
           href="https://www.vives.be"
