@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
-function Counter() {
-    const [count, setCount] = useState(0);
+function Counter(props) {
+    var init = parseInt(props.init || 0);
+    const [count, setCount] = useState(init);
     useEffect(function() {
         var timer = setInterval(function() {
         setCount((count) => (count+1));

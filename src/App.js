@@ -13,7 +13,9 @@ function App() {
           {greeting}
           <button>Click</button>         
         </p> 
-        <Counter/>
+        <Counter/> <br/>
+        <Counter init={5}/> <br/>
+        <Counter init="10"/> <br/> 
         <a
           className="App-link"
           href="https://www.vives.be"
