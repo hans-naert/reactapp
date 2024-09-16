@@ -1,5 +1,6 @@
 import logo from './logo-vives.svg';
 import './App.css';
+import Counter from './Counter.js'
 
 function App() {
   const name = "John Doe";
@@ -10,8 +11,9 @@ function App() {
         <img src={logo} className="App-logo" alt="logo" />
         <p>
           {greeting}
-          <button>Click</button>
-        </p>
+          <button>Click</button>         
+        </p> 
+        <Counter></Counter>
         <a
           className="App-link"
           href="https://www.vives.be"
