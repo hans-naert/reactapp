@@ -1,10 +1,15 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 function Counter() {
     const [count, setCount] = useState(0);
-    setInterval(function() {
-        setCount(count+1);
+    useEffect(function() {
+        var timer = setInterval(function() {
+        setCount((count) => (count+1));
         console.log("count =", count);
         }, 1000);
+        return function() {
+            clearInterval(timer);
+            }
+    });
     return (
         <>
             The counter is set to: {count}
