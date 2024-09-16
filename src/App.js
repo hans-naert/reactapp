@@ -2,12 +2,15 @@ import logo from './logo-vives.svg';
 import './App.css';
 
 function App() {
+  const name = "John Doe";
+  const greeting = <h1>Hi, {name} !</h1>;
   return (
     <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
-          Hello World!
+          {greeting}
+          <button>Click</button>
         </p>
         <a
           className="App-link"
