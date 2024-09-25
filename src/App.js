@@ -1,7 +1,13 @@
 import logo from './logo.svg';
 import './App.css';
+import Counter from './Counter';
+import { useState } from 'react';
 
 function App() {
+  var [cnt2, setCnt2] = useState(0);
+  function increment(){
+    setCnt2((cnt2)=>cnt2+1);
+  }
   return (
     <div className="App">
       <header className="App-header">
@@ -15,8 +21,12 @@ function App() {
           target="_blank"
           rel="noopener noreferrer"
         >
-          Learn React
+          Learn React Vives
         </a>
+        <br/>
+        <Counter init="10" increment2={increment}/>
+        <br/>
+        <div>{cnt2}</div>
       </header>
     </div>
   );
