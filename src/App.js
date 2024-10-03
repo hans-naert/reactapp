@@ -15,11 +15,12 @@ function App() {
           <button>Click</button>
         </p>
         {
-          [...Array(3).keys()].slice(1).map(function (i) {
+          [...Array(4).keys()].slice(1).map(function (i) {
+            var val = i < 3 ? '1' : '0'; // Value of the "autostart" attribute
             return (
               <React.Fragment key={i}>
-                Counter {i} defined by {`<Counter init='5' end='${10 + i}' />`} : <br />
-                <Counter init='5' end={10 + i} />
+                Counter {i} defined by {`<Counter autostart='${val}' init='5' end='${10 + i}' />`} : <br />
+                <Counter autostart={val} init='5' end={10 + i} />
                 <br /><br />
               </React.Fragment>
             )

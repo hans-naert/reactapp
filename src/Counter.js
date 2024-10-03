@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
-function Counter({ init, end }) {
+function Counter({ init, end, autostart }) {
     var init = parseInt(init || 0);
     var end = parseInt(end || 0);
+    autostart = parseInt(autostart || 0);
     const [count, setCount] = useState(init);
     const [start, setStart] = useState(true); // true for displaying the Start button
     useEffect(function () {
@@ -11,11 +12,7 @@ function Counter({ init, end }) {
                 setCount((count) => {
                     var newCount = count + 1;
                     if (newCount >= end) setStart(true);
-                    return newCount;
-
-                    function incr() {
-                        setCount(count + 1);
-                    }
+                    return newCount;                   
                 });
             }, 1000);
         }
@@ -23,6 +20,9 @@ function Counter({ init, end }) {
             clearInterval(timer);
         }
     });
+    useEffect(function() {
+        if (autostart) restart()
+        },[] );
     function restart() {
         setStart(false); // Hide the Start button
         setCount(init); // Reset "count" to the initial value.
