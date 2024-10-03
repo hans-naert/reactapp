@@ -14,8 +14,8 @@ function App() {
           <button>Click</button>         
         </p> 
         <Counter/> <br/>
-        <Counter init={5}/> <br/>
-        <Counter init="10"/> <br/> 
+        <Counter init={5} end={15}/> <br/>
+        <Counter init="5" end="10"/> <br/> 
         <a
           className="App-link"
           href="https://www.vives.be"
