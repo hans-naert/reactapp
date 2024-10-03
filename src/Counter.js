@@ -18,6 +18,7 @@ function Counter({ init, end }) {
             Initial value of the counter is: {init}
             <br />
             End of the counter at: {end}
+            <br />
             The counter is set to: {count}
             <br />
             {
