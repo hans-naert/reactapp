@@ -3,16 +3,9 @@ function Counter({ init, end }) {
     var init = parseInt(init || 0);
     var end = parseInt(end || 0);
     const [count, setCount] = useState(init);
-    useEffect(function () {
-        if (end && count >= end) return;
-        var timer = setInterval(function () {
-            setCount((count) => (count + 1));
-            console.log("count =", count);
-        }, 1000);
-        return function () {
-            clearInterval(timer);
-        }
-    });
+    function incr() {
+        setCount(count + 1);
+    }
     return (
         <>
             Initial value of the counter is: {init}
@@ -22,7 +15,12 @@ function Counter({ init, end }) {
             The counter is set to: {count}
             <br />
             {
-                (end && count >= end) ? <b style={{color:"red", fontSize:"20px"}}>Counter stopped</b> : <i>Counter in progress</i>
+                (count < end) ?
+                    <>
+                        <i>Counter in progress</i>&nbsp;
+                        <button onClick={incr}>count+1</button>
+                    </> :
+                    <b>Counter stopped</b>
             }
         </>
     )
