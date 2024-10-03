@@ -15,7 +15,7 @@ function App() {
           <button>Click</button>
         </p>
         {
-          [0, 1, 2].map(function (i) {
+          [...Array(3).keys()].slice(1).map(function (i) {
             return (
               <React.Fragment key={i}>
                 Counter {i} defined by {`<Counter init='5' end='${10 + i}' />`} : <br />
