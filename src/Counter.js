@@ -3,9 +3,31 @@ function Counter({ init, end }) {
     var init = parseInt(init || 0);
     var end = parseInt(end || 0);
     const [count, setCount] = useState(init);
-    function incr() {
-        setCount(count + 1);
+    const [start, setStart] = useState(true); // true for displaying the Start button
+    useEffect(function () {
+        if (!start) {
+            // The Start button is not displayed; you can initiate the timer.
+            var timer = setInterval(function () {
+                setCount((count) => {
+                    var newCount = count + 1;
+                    if (newCount >= end) setStart(true);
+                    return newCount;
+
+                    function incr() {
+                        setCount(count + 1);
+                    }
+                });
+            }, 1000);
+        }
+        return function () {
+            clearInterval(timer);
+        }
+    });
+    function restart() {
+        setStart(false); // Hide the Start button
+        setCount(init); // Reset "count" to the initial value.
     }
+
     return (
         <>
             Initial value of the counter is: {init}
@@ -15,12 +37,12 @@ function Counter({ init, end }) {
             The counter is set to: {count}
             <br />
             {
-                (count < end) ?
+                (start) ?
                     <>
-                        <i>Counter in progress</i>&nbsp;
-                        <button onClick={incr}>count+1</button>
+                        <b>Counter stopped</b>&nbsp;
+                        <button onClick={restart}>Start</button>
                     </> :
-                    <b>Counter stopped</b>
+                    <i>Counter in progress</i>
             }
         </>
     )
