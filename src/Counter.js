@@ -4,7 +4,7 @@ function Counter({ setTotal }) {
     const refCounter = useRef();
     useEffect(function () {
         refCounter.current.focus(); // refCounter.current represents the DOM element associated with that reference
-    },);
+    },[]);
 
     function change(event) {
         var newValue = parseInt(event.target.value || 0);
