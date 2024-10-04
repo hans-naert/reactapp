@@ -1,32 +1,18 @@
 import logo from './logo-vives.svg';
 import './App.css';
 import Counter from './Counter.js'
+import React, { Fragment, useState } from 'react';
 
 function App() {
-  const name = "John Doe";
-  const greeting = <h1>Hi, {name} !</h1>;
+  const [total, setTotal] = useState(0);
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          {greeting}
-          <button>Click</button>         
-        </p> 
-        <Counter/> <br/>
-        <Counter init={5}/> <br/>
-        <Counter init="10"/> <br/> 
-        <a
-          className="App-link"
-          href="https://www.vives.be"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Vives
-        </a>
-      </header>
-    </div>
-  );
+  <>
+  <Counter setTotal={setTotal} /> <hr />
+  <Counter setTotal={setTotal} focus={true} /> <hr />
+  <Counter setTotal={setTotal} /> <hr />
+  <b>Total : {total}</b>
+  </>
+  )
 }
 
 export default App;
