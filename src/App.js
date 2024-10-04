@@ -7,7 +7,7 @@ function App() {
   return (
     <>
       <Counter setTotal={setTotal} /> <hr />
-      <Counter setTotal={setTotal} /> <hr />
+      <Counter setTotal={setTotal} focus={true}/> <hr />
       <Counter setTotal={setTotal} /> <hr />
       <b>Total : {total}</b>
     </>
