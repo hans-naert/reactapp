@@ -1,6 +1,8 @@
-import { useState, useRef, useEffect } from "react";
-function Counter({ setTotal, focus }) {
+import { useState, useRef, useEffect, useContext } from "react";
+import { TotalContext } from "./App";
+function Counter({ focus }) {
     const [value, setValue] = useState("");
+    const [total, setTotal] = useContext(TotalContext);
     const refCounter = useRef();
     useEffect(function () {
         if (focus) refCounter.current.focus(); // refCounter.current represents the DOM element associated with that reference
